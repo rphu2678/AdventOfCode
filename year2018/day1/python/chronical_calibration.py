@@ -1,3 +1,4 @@
+from time import time
 def calibrate(cal_file, start_freq=0):
     with open(cal_file, 'r') as f:
         return sum(int(line) for line in f) + start_freq
@@ -22,5 +23,8 @@ def _generate_repeat_input(cal_file):
 
 
 if __name__ == '__main__':
-    print(f'Initial calibration: {calibrate("input.txt", 0)}')
-    print(f'First repeated frequency: {first_repeat_output("input.txt", 0)}')
+    filepath = '../input.txt'
+    print(f'Initial calibration: {calibrate(filepath, 0)}')
+    start = time()
+    print(f'First repeated frequency: {first_repeat_output(filepath, 0)}')
+    print(time() - start)
